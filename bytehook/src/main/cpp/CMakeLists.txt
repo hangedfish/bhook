@@ -2,11 +2,12 @@ cmake_minimum_required(VERSION 3.22.1)
 project(bytehook)
 
 enable_language(ASM)
+set(CMAKE_C_STANDARD 17)
 
 file(GLOB SRC *.c)
 add_library(bytehook SHARED ${SRC})
-target_compile_features(bytehook PUBLIC c_std_17)
-target_compile_options(bytehook PUBLIC -std=c17 -Weverything -Werror)
+#target_compile_features(bytehook PUBLIC c_std_17)
+#target_compile_options(bytehook PUBLIC -std=c17 -Weverything -Werror)
 target_include_directories(bytehook PUBLIC . include third_party/bsd third_party/lss)
 target_link_libraries(bytehook log)
 
